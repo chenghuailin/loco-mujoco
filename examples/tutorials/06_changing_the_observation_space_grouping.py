@@ -20,7 +20,7 @@ env = ImitationFactory.make("ToddlerBot", observation_spec=observation_spec,
                             default_dataset_conf=dict(task="walk"))
 
 # checkout the detailed observation space (opens webbrowser)
-env.create_observation_summary()
+env.create_observation_summary(filename="observation_space_summary_grouping.html")
 
 # get observation masks
 policy_mask = env.obs_container.get_obs_ind_by_group("policy")

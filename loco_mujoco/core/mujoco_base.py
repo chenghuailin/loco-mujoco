@@ -4,6 +4,7 @@ from typing import Union, List, Dict, Tuple, Optional
 from types import ModuleType
 import requests
 import webbrowser
+import os
 
 from functools import partial
 import mujoco
@@ -950,7 +951,8 @@ class Mujoco:
 
     def create_observation_summary(
             self,
-            filename: Optional[str] = None,
+            #filename: Optional[str] = None,
+            filename: str = "obs_table.html",
             open_in_browser: bool = True
     ) -> str:
         """Generates and uploads an HTML summary of a LocoMuJoCo environment's observations.
@@ -1118,19 +1120,26 @@ class Mujoco:
             with open(filename, "w", encoding="utf-8") as f:
                 f.write(html)
 
-        # Upload HTML
-        files = {"file": ("file.html", html, "text/html")}
-        headers = {"User-Agent": "curl/7.68.0"}
-        res = requests.post("https://0x0.st", files=files, headers=headers)
+        # Open local HTML in browser
+        if open_in_browser and filename:
+            abs_path = os.path.abspath(filename)
+            webbrowser.open(f"file://{abs_path}")
 
-        if res.status_code == 200:
-            url = res.text.strip()
-            print(f"✅ Uploaded Observation summary to: {url}")
-            if open_in_browser:
-                webbrowser.open(url)
-            return url
-        else:
-            raise Exception(f"❌ Upload failed: {res.status_code} - {res.text}")
+        return f"file://{os.path.abspath(filename)}"
+
+        # # Upload HTML
+        # files = {"file": ("file.html", html, "text/html")}
+        # headers = {"User-Agent": "curl/7.68.0"}
+        # res = requests.post("https://0x0.st", files=files, headers=headers)
+
+        # if res.status_code == 200:
+        #     url = res.text.strip()
+        #     print(f"✅ Uploaded Observation summary to: {url}")
+        #     if open_in_browser:
+        #         webbrowser.open(url)
+        #     return url
+        # else:
+        #     raise Exception(f"❌ Upload failed: {res.status_code} - {res.text}")
 
     @staticmethod
     def parse_observation_spec(obs_spec: List[Dict]) -> List[ObservationType]:

@@ -1,0 +1,98 @@
+
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>LocoMuJoCo Observation Summary - ToddlerBot</title>
+            <style>
+                body { font-family: Arial, sans-serif; background: #f8f9fa; padding: 2rem; }
+                table { border-collapse: collapse; width: 90%; margin: auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+                th, td { padding: 12px 18px; border: 1px solid #ddd; text-align: left; }
+                th { background-color: rgb(9, 16, 61); color: white; }
+                tr:hover { background-color: #f1f1f1; }
+                h2 { text-align: center; }
+            </style>
+        </head>
+        <body>
+            <h2>LocoMuJoCo Observation Summary – ToddlerBot</h2>
+            <table>
+                <tr>
+                    <th>Obs Indices</th>
+                    <th>Obs Name</th>
+                    <th>Obs Type</th>
+                    <th>Min / Max</th>
+                    <th>Group(s)</th>
+                    <th>Randomizable</th>
+                </tr>
+        
+                <tr>
+                    <td>range(0, 5)</td>
+                    <td>free_joint</td>
+                    <td>FreeJointPosNoXY</td>
+                    <td>-inf, -inf, -inf, -inf, -inf / inf, inf, inf, inf, inf</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td>range(5, 11)</td>
+                    <td>free_joint_vel</td>
+                    <td>FreeJointVel</td>
+                    <td>-inf, -inf, -inf, -inf, -inf, -inf / inf, inf, inf, inf, inf, inf</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td>11</td>
+                    <td>joint_pos</td>
+                    <td>JointPos</td>
+                    <td>-1.571 / 2.356</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td>12</td>
+                    <td>joint_vel1</td>
+                    <td>JointVel</td>
+                    <td>-inf / inf</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td>13</td>
+                    <td>joint_vel2</td>
+                    <td>JointVel</td>
+                    <td>-inf / inf</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td>range(14, 17)</td>
+                    <td>head_pos</td>
+                    <td>BodyPos</td>
+                    <td>-inf, -inf, -inf / inf, inf, inf</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td>range(17, 47)</td>
+                    <td>last_action</td>
+                    <td>LastAction</td>
+                    <td>-inf, -inf, -inf, ..., -inf, -inf, -inf / inf, inf, inf, ..., inf, inf, inf</td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            
+                <tr>
+                    <td></td>
+                    <td>NoGoal</td>
+                    <td>NoGoal</td>
+                    <td> / </td>
+                    <td>None</td>
+                    <td>True</td>
+                </tr>
+            </table></body></html>

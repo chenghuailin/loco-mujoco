@@ -17,8 +17,28 @@ env = ImitationFactory.make("ToddlerBot", observation_spec=observation_spec,
                             default_dataset_conf=dict(task="walk"))
 
 # checkout the detailed observation space (opens webbrowser)
-env.create_observation_summary()
+env.create_observation_summary(filename="observation_space_summary.html")
 
 # run training ....
 # this works accordingly for Mjx and Gymnasium environments!
 
+
+# ## Added because env.create_observation_summary() does not work
+
+# # Print observation space info instead
+# print("Observation space created successfully!")
+# print(f"Observation space shape: {env.observation_space.shape}")
+# print(f"Action space shape: {env.action_space.shape}")
+
+# # Test the environment
+# env.reset()
+# print("Environment reset successfully!")
+
+# # Run a few steps to verify everything works
+# import numpy as np
+# for i in range(10):
+#     action = np.random.randn(env.action_space.shape[0])
+#     obs, reward, done, truncated, info = env.step(action)
+#     print(f"Step {i}: obs_shape={obs.shape}, reward={reward:.3f}")
+
+# print("Custom observation space working correctly!")
