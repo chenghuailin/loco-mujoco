@@ -14,7 +14,7 @@ action_dim = env.action_space.shape[0]
 seed = 1
 
 env.reset()
-img = env.render()
+# img = env.render()
 absorbing = False
 i = 0
 
@@ -23,7 +23,10 @@ while True:
         env.reset()
         i = 0
     action = np.random.randn(action_dim)
-    nstate, _, absorbing, _,  _ = env.step(action)
+    nstate, reward, absorbing, _,  _ = env.step(action)
 
-    env.render()
+    if i % 100 == 0:
+        print(f"Step {i}: reward = {reward:.3f}, absorbing = {absorbing}")
+
+    # env.render()
     i += 1

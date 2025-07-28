@@ -1,7 +1,6 @@
 import numpy as np
 from loco_mujoco import ImitationFactory
 
-
 # create the environment and task
 env = ImitationFactory.make("FourierGR1T2", default_dataset_conf=dict(task="stepinplace1"))
 
@@ -9,10 +8,11 @@ env = ImitationFactory.make("FourierGR1T2", default_dataset_conf=dict(task="step
 #expert_data = env.create_dataset()
 
 action_dim = env.info.action_space.shape[0]
+print(action_dim)
 
 env.reset()
 
-env.render()
+# env.render()
 absorbing = False
 i = 0
 
@@ -23,5 +23,5 @@ while True:
     action = np.random.randn(action_dim)
     nstate, reward, absorbing, done, info = env.step(action)
 
-    env.render()
+    # env.render()
     i += 1
