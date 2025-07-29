@@ -33,18 +33,18 @@ for i in range(env.th.n_trajectories):
 
 print("=" * 50)
 
-# 设置为顺序循环模式：修改环境的轨迹处理器属性
-env.th.random_start = False
-env.th.use_fixed_start = False  # 不使用固定起始位置
+# # 设置为顺序循环模式：修改环境的轨迹处理器属性
+# env.th.random_start = False
+# env.th.use_fixed_start = False  # 不使用固定起始位置
 
-env.play_trajectory(n_episodes=3, n_steps_per_episode=500, render=True)
+# env.play_trajectory(n_episodes=3, n_steps_per_episode=500, render=True)
 
 # 方法2：手动控制每个轨迹的播放
-# for traj_idx in range(env.th.n_trajectories):
-#     print(f"播放轨迹 {traj_idx}")
-#     env.th.fixed_start_conf = (traj_idx, 0)  # 设置播放指定轨迹
-#     env.th.use_fixed_start = True
-#     env.play_trajectory(n_episodes=1, n_steps_per_episode=500, render=True)
+for traj_idx in range(env.th.n_trajectories):
+    print(f"播放轨迹 {traj_idx}")
+    env.th.fixed_start_conf = (traj_idx, 0)  # 设置播放指定轨迹
+    env.th.use_fixed_start = True
+    env.play_trajectory(n_episodes=1, n_steps_per_episode=500, render=True)
 
 # 方法3：创建自定义的顺序播放函数
 def play_all_trajectories_in_order(env, n_episodes_per_traj=1, n_steps_per_episode=500, render=True):
